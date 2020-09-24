@@ -8,16 +8,15 @@ const PORT = process.env.PORT || 5000
 //process.env.PORT
 //process.env.NODE_ENV => production or undefined
 
+//middleware
+app.use(cors())
+app.use(express.json()); //req.body
+
 if(process.env.NODE_ENV === 'production'){
     //server static content
     //npm run build
     app.use(express.static(path.join(__dirname, 'client/build')))
 }
-
-
-//middleware
-app.use(cors())
-app.use(express.json()); //req.body
 
 //Routes//
 
